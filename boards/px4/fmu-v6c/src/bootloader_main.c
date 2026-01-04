@@ -60,3 +60,4 @@ void board_timerhook(void)
 {
 	sys_tick_handler();
 }
+

@@ -467,6 +467,15 @@ void MulticopterPositionControl::Run()
 			}
 
 			_control.setState(states);
+			// // --- LAND yaw lock ---
+			// if (_vehicle_control_mode.flag_control_auto_enabled && !_vehicle_land_detected.landed) {
+			// if (!PX4_ISFINITE(_setpoint.yaw)) {
+			// 	_setpoint.yaw = local_pos.heading;
+			// }
+			// if (!PX4_ISFINITE(_setpoint.yawspeed)) {
+			// 	_setpoint.yawspeed = 0.f;
+			// }
+			// }
 
 			// Run position control
 			if (_control.update(dt)) {

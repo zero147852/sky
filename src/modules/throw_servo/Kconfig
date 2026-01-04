@@ -1,0 +1,12 @@
+menuconfig MODULES_THROW_SERVO
+	bool "throw_servo"
+	default n
+	---help---
+		Enable support for throw_servo
+
+menuconfig USER_THROW_SERVO
+	bool "throw_servo running as userspace module"
+	default n
+	depends on BOARD_PROTECTED && MODULES_THROW_SERVO
+	---help---
+		Put throw_servo in userspace memory

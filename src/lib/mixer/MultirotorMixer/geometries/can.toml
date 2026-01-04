@@ -1,0 +1,20 @@
+# Can
+
+[info]
+key = "can"
+description = "can"
+
+[rotor_default]
+axis      = [0.0, 0.0, -1.0]
+Ct        = 1.0
+Cm        = 0.0
+direction = "CW"
+
+[[rotors]]
+name      = "up"
+position  = [0.0, 0.0, -1.0]
+direction = "CCW"
+
+[[rotors]]
+name      = "down"
+position  = [0.0, 0.0, -1.5]

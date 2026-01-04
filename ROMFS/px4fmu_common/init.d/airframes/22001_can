@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# @name Can
+# @type Can
+# @class Can
+#
+# @output MAIN1 up thruster
+# @output MAIN2 down thruster
+# @output MAIN3 horizontal servo
+# @output MAIN4 vertical servo
+#
+# @board px4_fmu-v2 exclude
+# @board bitcraze_crazyflie exclude
+#
+
+. ${R}etc/init.d/rc.can_defaults
+
+
+set MIXER can
+set PWM_OUT 1234

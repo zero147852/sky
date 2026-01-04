@@ -32,6 +32,7 @@
 ############################################################################
 
 add_subdirectory(RateControl)
+add_subdirectory(RateLADRC)
 
 px4_add_module(
 	MODULE modules__mc_rate_control
@@ -45,5 +46,6 @@ px4_add_module(
 		circuit_breaker
 		mathlib
 		RateControl
+		RateLADRC
 		px4_work_queue
 	)

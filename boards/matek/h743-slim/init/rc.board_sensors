@@ -5,11 +5,28 @@
 
 board_adc start
 
-# Internal SPI bus ICM-20602
-icm20602 -R 12 -s start
+# Internal SPI bus ICM-42688P (SPI1) on V3 board, PITCH180 orientation
+if ! icm42688p -s -b 1 -R 12 start
 
-# Internal SPI bus MPU-6000
-mpu6000 -R 12 -s start
+then
+    mpu6000 -s -b 1 -R 12 start
+fi 
+    
+if ! icm42688p -s -b 1 -R 26 start
+then
+
+    # Internal SPI bus ICM-42605 on V1.5 board, ROTATION ROLL 180_ YAW 270 orientation
+    if ! icm42605 -s -b 4 -R 14 start
+    then
+        # Internal SPI bus ICM-20602 on V1.0 board, PITCH180 orientation
+        icm20602 -s -b 4 -R 12 start
+    fi
+fi
+# # Internal SPI bus ICM-20602
+# icm20602 -R 12 -s start
+
+# # Internal SPI bus MPU-6000
+# mpu6000 -R 12 -s start
 
 # Internal baro
 dps310 -I start -a 118
