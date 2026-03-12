@@ -6,18 +6,15 @@
 board_adc start
 
 # Internal SPI bus ICM-42688P
-if ! icm42688p -R 6 -b 1 -s start
-then
-	icm42605 -R 6 -b 1 -s start
-fi
+icm42688p -R 2 -b 1 -s start
 
-# Internal SPI bus ICM-42688
-if ! icm42688p -R 6 -b 4 -s start
-then
-	icm42605 -R 6 -b 4 -s start
-fi
+
+# Internal SPI bus ICM-42688P
+icm42688p -R 2 -b 4 -s start
+
+
 # Internal baro
 dps310 -I start -a 118
 
-# External mag
+# Internal mag
 ist8310 -I -R 2 start
